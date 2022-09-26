@@ -99,4 +99,18 @@ bool isMagic4Square(const int arrayIntegers4x4[4][4]) {
     return magic;
 }
 
-char penteWinner(const char penteboard[19][19], int row, int column);
+char penteWinner(const char penteboard[19][19], int row, int column) {
+    int rowCount = 1;
+    int columnCount = 1;
+    
+    char targetChar;
+
+    targetChar = penteboard[row][column];
+    
+    //Check row
+    while (penteboard[row][column] == targetChar && row <= 0; ) {
+        row = row + 1;
+        
+    }
+    
+}
