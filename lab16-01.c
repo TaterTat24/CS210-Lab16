@@ -19,6 +19,8 @@ int main() {
 
     print4SquareInt(numSquare);
 
+    hasUniqueElements4Square(numSquare);
+
     if(isMagic4Square(numSquare)) {
       printf("this square is magic\n");
     } else {
