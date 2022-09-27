@@ -101,33 +101,54 @@ bool isMagic4Square(const int arrayIntegers4x4[4][4]) {
 
 char penteWinner(const char penteboard[19][19], int row, int column) {
     int horizontalCount = 1;
-    //int verticalCount = 1;
+    int verticalCount = 1;
     
     char targetChar;
 
     targetChar = penteboard[row][column];
-    
+    int originalRow = row;
+    int originalColumn = column;
+
+    //Reset
+    row = originalRow;
+    column = originalColumn;
     //Check Horizontal (+)
     while ((penteboard[row][column+1] == targetChar) && (row >= 0) && (row < 19)) {
         horizontalCount = horizontalCount + 1;
-        printf("Target Character: %c\n", targetChar);
-        printf("Current character: %c\n", penteboard[row][column]);
-        printf("Row: %d\n", row);
-        printf("Column: %d\n", column);
         column = column + 1;
-        printf("rowCount: %d\n", horizontalCount);
     }
 
-    //Check Horizontal (+)
+    //Reset
+    row = originalRow;
+    column = originalColumn;
+    //Check Horizontal (-)
     while ((penteboard[row][column-1] == targetChar) && (row >= 0) && (row < 19)) {
         horizontalCount = horizontalCount + 1;
-        printf("Target Character: %c\n", targetChar);
-        printf("Current character: %c\n", penteboard[row][column]);
-        printf("Row: %d\n", row);
-        printf("Column: %d\n", column);
         column = column - 1;
-        printf("horizontalCount: %d\n", horizontalCount);
     }
 
-    return targetChar;
+    //Reset
+    row = originalRow;
+    column = originalColumn;
+    //Check Vertical (+)
+    while ((penteboard[row+1][column] == targetChar) && (column >= 0) && (column < 19)) {
+        verticalCount = verticalCount + 1;
+        row = row + 1;
+    }
+
+    //Reset
+    row = originalRow;
+    column = originalColumn;
+    //Check Vertical (-)
+    while ((penteboard[row-1][column] == targetChar) && (column >= 0) && (column < 19)) {
+        verticalCount = verticalCount + 1;
+        row = row - 1;
+    }
+
+    if ((horizontalCount == 5) || (verticalCount == 5)) {
+        return targetChar;
+    }
+    else {
+        return ' ';
+    }
 }
