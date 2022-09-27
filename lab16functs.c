@@ -100,17 +100,34 @@ bool isMagic4Square(const int arrayIntegers4x4[4][4]) {
 }
 
 char penteWinner(const char penteboard[19][19], int row, int column) {
-    int rowCount = 1;
-    int columnCount = 1;
+    int horizontalCount = 1;
+    //int verticalCount = 1;
     
     char targetChar;
 
     targetChar = penteboard[row][column];
     
-    //Check row
-    while (penteboard[row][column] == targetChar && row <= 0; ) {
-        row = row + 1;
-        
+    //Check Horizontal (+)
+    while ((penteboard[row][column+1] == targetChar) && (row >= 0) && (row < 19)) {
+        horizontalCount = horizontalCount + 1;
+        printf("Target Character: %c\n", targetChar);
+        printf("Current character: %c\n", penteboard[row][column]);
+        printf("Row: %d\n", row);
+        printf("Column: %d\n", column);
+        column = column + 1;
+        printf("rowCount: %d\n", horizontalCount);
     }
-    
+
+    //Check Horizontal (+)
+    while ((penteboard[row][column-1] == targetChar) && (row >= 0) && (row < 19)) {
+        horizontalCount = horizontalCount + 1;
+        printf("Target Character: %c\n", targetChar);
+        printf("Current character: %c\n", penteboard[row][column]);
+        printf("Row: %d\n", row);
+        printf("Column: %d\n", column);
+        column = column - 1;
+        printf("horizontalCount: %d\n", horizontalCount);
+    }
+
+    return targetChar;
 }
