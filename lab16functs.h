@@ -6,8 +6,8 @@
  * Purpose: 
  * ===========================================================
  */
-#ifndef LAB15FUNCTS_H
-#define LAB15FUNCTS_H
+#ifndef LAB16FUNCTS_H
+#define LAB16FUNCTS_H
 
 #include <stdbool.h>
 
